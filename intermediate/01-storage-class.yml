@@ -1,8 +1,6 @@
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-    name: ebs-sc
-provisioner: ebs.csi.aws.com
+  name: local-sc
+provisioner: kubernetes.io/no-provisioner
 volumeBindingMode: WaitForFirstConsumer
-parameters:
-    type: gp3

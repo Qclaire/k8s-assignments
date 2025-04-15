@@ -29,16 +29,16 @@ spec:
           mountPath: /var/lib/mysql
         - name: config
           mountPath: /etc/mysql/conf.d
-        readinessProbe:
-          exec:
-            command: ["mysqladmin", "ping", "-h", "localhost"]
-          initialDelaySeconds: 15
-          periodSeconds: 10
-        livenessProbe:
-          exec:
-            command: ["mysqladmin", "ping", "-h", "localhost"]
-          initialDelaySeconds: 30
-          periodSeconds: 10
+        # readinessProbe:
+        #   exec:
+        #     command: ["mysqladmin", "ping", "-h", "localhost"]
+        #   initialDelaySeconds: 15
+        #   periodSeconds: 10
+        # livenessProbe:
+        #   exec:
+        #     command: ["mysqladmin", "ping", "-h", "localhost"]
+        #   initialDelaySeconds: 30
+        #   periodSeconds: 10
       volumes:
       - name: config
         configMap:

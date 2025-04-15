@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: backend
+    labels:
+        name: tech4dev
+spec:
+    replicas: 2
+    selector:
+        matchLabels:
+            app: backend
+    template:
+        metadata:
+            labels:
+                app: backend
+                name: tech4dev
+        spec:
+            containers:
+                - name: backend
+                  image: hashicorp/http-echo
+                  args: ["-text=Hello from backend"]
+                  ports:
+                      - containerPort: 5678
+                  resources:
+                      requests:
+                          memory: "64Mi"
+                          cpu: "250m"
+                      limits:
+                          memory: "128Mi"
+                          cpu: "500m"
